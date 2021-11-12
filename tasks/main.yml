@@ -1,0 +1,27 @@
+---
+- name: Install common system packages
+  import_tasks: install-system-packages.yml
+
+- name: Install Docker
+  import_tasks: install-docker.yml
+  when: ansible_architecture == "x86_64"
+
+- name: Install Docker (ARM)
+  import_tasks: install-docker-arm.yml
+  when: ansible_architecture == "armv7l"
+
+- name: Provide aws creds to docker
+  import_tasks: provide-aws-creds-to-docker.yml
+
+- name: Setup an HTTPS reverse proxy
+  import_tasks: setup-reverse-proxy.yml
+  when: ansible_architecture == "x86_64"
+
+#TODO: No need to deal with https on the pi
+#- name: Setup an HTTPS reverse proxy (ARM)
+#  import_tasks: setup-reverse-proxy-arm.yml
+#  when: ansible_architecture == "armv7l"
+
+#TODO: This needs to be migrated
+#- name: Install backup script capabilities
+# import_tasks: install-backup-script.yml

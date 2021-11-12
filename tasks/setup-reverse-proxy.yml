@@ -1,0 +1,38 @@
+---
+- name: Create nginx-proxy container
+  docker_container:
+    name: "proxy"
+    image: "jwilder/nginx-proxy:latest"
+    restart_policy: "always"
+    memory: "50MB"
+    log_driver: "awslogs"
+    log_options:
+        awslogs-region: "{{cloudwatch_region}}"
+        awslogs-group: "{{cloudwatch_log_group}}"
+        awslogs-stream: "proxy-{{ inventory_hostname }}"
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - /etc/nginx/certs
+      - /etc/nginx/vhost.d
+      - /usr/share/nginx/html
+
+- name: Create letsencrypt nginx-proxy companion container
+  docker_container:
+    name: "letsencrypt"
+    image: "jrcs/letsencrypt-nginx-proxy-companion:latest"
+    restart_policy: "always"
+    memory: "50MB"
+    log_driver: "awslogs"
+    log_options:
+        awslogs-region: "{{cloudwatch_region}}"
+        awslogs-group: "{{cloudwatch_log_group}}"
+        awslogs-stream: "letsencrypt-{{ inventory_hostname }}"
+    volumes_from:
+      - "proxy"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    env:
+      DEFAULT_EMAIL: "{{letsencrypt_email}}"
