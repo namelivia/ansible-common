@@ -1,7 +1,7 @@
 ---
 - name: Add the backup GPG key
   copy:
-    src: {{encryption_key_path}}
+    src: "{{encryption_key_path}}"
     dest: /tmp/backup.asc
     owner: root
     group: root
