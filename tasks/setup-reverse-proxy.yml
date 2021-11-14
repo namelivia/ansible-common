@@ -1,4 +1,11 @@
 ---
+- name: 'Check mandatory variables are defined'
+  assert:
+    that:
+      - letsencrypt_email is defined
+      - cloudwatch_region is defined
+      - cloudwatch_log_group is defined
+
 - name: Create nginx-proxy container
   docker_container:
     name: "proxy"

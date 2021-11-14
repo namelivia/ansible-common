@@ -1,4 +1,10 @@
 ---
+- name: 'Check mandatory variables are defined'
+  assert:
+    that:
+      - aws_access_key_id is defined
+      - aws_secret_access_key is defined
+
 - name: Create the backup directory
   file:
     path: "/etc/systemd/system/docker.service.d"

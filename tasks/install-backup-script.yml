@@ -1,4 +1,11 @@
 ---
+- name: 'Check mandatory variables are defined'
+  assert:
+    that:
+      - encryption_key_path is defined
+      - aws_access_key_id is defined
+      - aws_secret_access_key is defined
+
 - name: Add the backup GPG key
   copy:
     src: "{{encryption_key_path}}"
