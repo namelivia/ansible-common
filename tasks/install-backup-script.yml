@@ -8,14 +8,14 @@
 
 - name: Add the backup GPG key
   copy:
-    src: "{{encryption_key_path}}"
+    src: "{{ encryption_key_path }}"
     dest: /tmp/backup.asc
     owner: root
     group: root
     mode: '0600'
 
 - name: Import the backup GPG key
-  shell: gpg --import /tmp/backup.asc 
+  shell: gpg --import /tmp/backup.asc
 
 - name: Create the aws config folder
   file:

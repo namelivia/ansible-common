@@ -4,3 +4,8 @@ galaxy_info:
   description: Ansible role with common operations for all instances
   license: GPLv2
   min_ansible_version: 2.5.1
+  platforms:
+    - name: Ubuntu
+      versions:
+        - bionic
+        - focal

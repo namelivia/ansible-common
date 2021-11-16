@@ -17,10 +17,5 @@
   import_tasks: setup-reverse-proxy.yml
   when: ansible_architecture == "x86_64"
 
-#TODO: No need to deal with https on the pi
-#- name: Setup an HTTPS reverse proxy (ARM)
-#  import_tasks: setup-reverse-proxy-arm.yml
-#  when: ansible_architecture == "armv7l"
-
 - name: Install backup script capabilities
   import_tasks: install-backup-script.yml

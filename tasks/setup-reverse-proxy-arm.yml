@@ -6,9 +6,9 @@
     memory: "50MB"
     log_driver: "awslogs"
     log_options:
-        awslogs-region: "{{cloudwatch_region}}"
-        awslogs-group: "{{cloudwatch_log_group}}"
-        awslogs-stream: "proxy-{{ inventory_hostname }}"
+      awslogs-region: "{{ cloudwatch_region }}"
+      awslogs-group: "{{ cloudwatch_log_group }}"
+      awslogs-stream: "proxy-{{ inventory_hostname }}"
     ports:
       - 80:80
       - 443:443
@@ -26,12 +26,12 @@
     memory: "50MB"
     log_driver: "awslogs"
     log_options:
-        awslogs-region: "{{cloudwatch_region}}"
-        awslogs-group: "{{cloudwatch_log_group}}"
-        awslogs-stream: "letsencrypt-{{ inventory_hostname }}"
+      awslogs-region: "{{ cloudwatch_region }}"
+      awslogs-group: "{{ cloudwatch_log_group }}"
+      awslogs-stream: "letsencrypt-{{ inventory_hostname }}"
     volumes_from:
       - "proxy"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     env:
-      DEFAULT_EMAIL: "{{letsencrypt_email}}"
+      DEFAULT_EMAIL: "{{ letsencrypt_email }}"
