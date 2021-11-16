@@ -11,7 +11,7 @@ collections:
   - community.docker
 
 roles:
-  - src: https://github.com/namelivia/namelivia.common
+  - src: https://github.com/namelivia/ansible-common
 ```
 
 ## Required variables (TODO)

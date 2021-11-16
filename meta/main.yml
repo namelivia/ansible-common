@@ -1,5 +1,5 @@
 galaxy_info:
-  role_name: namelivia.common
+  role_name: common
   author: José Ignacio Amelivia Santiago <jignacio.amelivia@gmail.com>
   description: Ansible role with common operations for all instances
   license: GPLv2
