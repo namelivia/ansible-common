@@ -15,16 +15,18 @@
     mode: '0600'
 
 - name: Import the backup GPG key
-  shell: gpg --import /tmp/backup.asc
+  command: gpg --import /tmp/backup.asc
+  changed_when: false
 
 - name: Create the aws config folder
   file:
     path: "/root/.aws"
     state: directory
+    mode: 0700
 
 - name: Copy aws config
   template:
-    src: ../templates/awsconfig.j2
+    src: awsconfig.j2
     dest: "/root/.aws/config"
     owner: root
     group: root
@@ -32,7 +34,7 @@
 
 - name: Copy aws credentials
   template:
-    src: ../templates/credentials.j2
+    src: credentials.j2
     dest: "/root/.aws/credentials"
     owner: root
     group: root
