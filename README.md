@@ -1,4 +1,4 @@
-# Ansible role to setup common operations
+# Ansible role to setup common operations [![Ansible Lint](https://github.com/namelivia/ansible-common/actions/workflows/ansible-lint.yml/badge.svg)](https://github.com/namelivia/ansible-common/actions/workflows/ansible-lint.yml)
 
 ## This is a WIP
 
