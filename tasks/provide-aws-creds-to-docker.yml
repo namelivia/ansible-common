@@ -20,9 +20,11 @@
     owner: root
     group: root
     mode: '600'
+    register: aws_credentials
 
 - name: Restart and reload docker service
   systemd:
     state: restarted
     daemon_reload: true
     name: docker
+    when: aws_credentials.changed
