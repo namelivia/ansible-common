@@ -9,16 +9,21 @@
     path: /etc/environment
     line: "SENTRY_DSN={{ sentry_dsn }}"
     create: true
-    mode: 0777
+    mode: 0644
 
 - name: Download sentry cli installer
   get_url:
     url: https://sentry.io/get-cli/
     dest: /tmp/sentry-cli-installer
+    mode: 0700
 
 - name: Execute the sentry cli installer
   command: /tmp/sentry-cli-installer
   changed_when: false
+  ignore_errors: true
+  failed_when:
+    - result.rc == 1
+    - '"sentry-cli is already installed" not in result.stderr'
 
 - name: Remove the sentry cli installer
   file:
