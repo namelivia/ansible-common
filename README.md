@@ -16,7 +16,7 @@ roles:
  - `cloudwatch_region` Cloudwatch region to send the logs to.
  - `cloudwatch_log_group` Cloudwatch log group to send the logs to.
  - `encryption_key_path` Path for the backup encryption key.
- - `sentry_dns` DNS provided from Sentry for the Sentry client.
+ - `sentry_dsn` DSN provided from Sentry for the Sentry client.
  - `aws_access_key_id` Access key ID for the backups bucket.
  - `aws_secret_access_key` Access secret for the backups bucket.
  - `letsencrypt_email` Email to setup on letsencrypt.

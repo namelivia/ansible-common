@@ -2,14 +2,14 @@
 - name: 'Check mandatory variables are defined'
   assert:
     that:
-      - sentry_dns
+      - sentry_dsn
 
-- name: Set sentry DNS env var
+- name: Set sentry DSN env var
   ansible.builtin.lineinfile:
     path: /etc/environment
-    line: "SENTRY_DNS={{ sentry_dns }}"
+    line: "SENTRY_DSN={{ sentry_dsn }}"
     create: true
-    mode: 0700
+    mode: 0777
 
 - name: Download sentry cli installer
   get_url:
