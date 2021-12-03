@@ -19,3 +19,6 @@
 
 - name: Install backup script capabilities
   import_tasks: install-backup-script.yml
+
+- name: Install sentry client
+  import_tasks: install-sentry.yml

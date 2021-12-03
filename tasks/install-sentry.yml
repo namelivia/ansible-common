@@ -1,0 +1,26 @@
+---
+- name: 'Check mandatory variables are defined'
+  assert:
+    that:
+      - sentry_dns
+
+- name: Set sentry DNS env var
+  ansible.builtin.lineinfile:
+    path: /etc/environment
+    line: "SENTRY_DNS={{ sentry_dns }}"
+    create: true
+    mode: 0700
+
+- name: Download sentry cli installer
+  get_url:
+    url: https://sentry.io/get-cli/
+    dest: /tmp/sentry-cli-installer
+
+- name: Execute the sentry cli installer
+  command: /tmp/sentry-cli-installer
+  changed_when: false
+
+- name: Remove the sentry cli installer
+  file:
+    path: /tmp/sentry-cli-installer
+    state: absent
