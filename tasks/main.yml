@@ -17,6 +17,10 @@
   import_tasks: setup-reverse-proxy.yml
   when: ansible_architecture == "x86_64"
 
+- name: Setup reverse proxy (ARM)
+  import_tasks: setup-reverse-proxy-arm.yml
+  when: ansible_architecture == "armv7l"
+
 - name: Install backup script capabilities
   import_tasks: install-backup-script.yml
 
