@@ -6,10 +6,6 @@
   import_tasks: install-docker.yml
   when: ansible_architecture == "x86_64"
 
-- name: Install Docker (ARM)
-  import_tasks: install-docker-arm.yml
-  when: ansible_architecture == "armv7l"
-
 - name: Provide aws creds to docker
   import_tasks: provide-aws-creds-to-docker.yml
 
