@@ -21,4 +21,4 @@
     owner: root
     group: root
     mode: '600'
-    register: aws_credentials
+    # register: aws_credentials
