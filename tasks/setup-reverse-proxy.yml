@@ -13,6 +13,7 @@
     restart_policy: "always"
     memory: "50MB"
     log_driver: "awslogs"
+    cleanup: true
     log_options:
       awslogs-region: "{{ cloudwatch_region }}"
       awslogs-group: "{{ cloudwatch_log_group }}"
