@@ -18,9 +18,10 @@
       awslogs-region: "{{ cloudwatch_region }}"
       awslogs-group: "{{ cloudwatch_log_group }}"
       awslogs-stream: "proxy-{{ inventory_hostname }}"
+    env:
+      HTTPS_METHOD: "nohttps"
     ports:
       - 80:80
-      - 443:443
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - /etc/nginx/certs
