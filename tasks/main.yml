@@ -2,15 +2,8 @@
 - name: Install common system packages
   import_tasks: install-system-packages.yml
 
-- name: Install Docker
-  import_tasks: install-docker.yml
-  when: ansible_architecture == "x86_64"
-
 - name: Provide aws creds to docker
   import_tasks: provide-aws-creds-to-docker.yml
 
 - name: Install backup script capabilities
   import_tasks: install-backup-script.yml
-
-- name: Install sentry client
-  import_tasks: install-sentry.yml
