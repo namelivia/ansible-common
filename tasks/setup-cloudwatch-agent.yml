@@ -23,3 +23,10 @@
     owner: root
     group: root
     mode: '600'
+
+- name: Start the agent
+  ansible.builtin.command: |
+    /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl
+    -a fetch-config -m onPremise -s
+    -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json
+  changed_when: false  # Can run multiple times
