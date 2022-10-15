@@ -6,6 +6,7 @@
   apt: name={{ item }} state=latest update_cache=yes
   loop:
     - 'apt-transport-https'
+    - 'vim'
     - 'ca-certificates'
     - 'curl'
     - 'software-properties-common'
