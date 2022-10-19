@@ -14,5 +14,6 @@
 - name: Install sentry
   import_tasks: install-sentry.yml
 
-- name: Setup cloudwatch agent
-  import_tasks: setup-cloudwatch-agent.yml
+# Disabled, this is very expensive
+# - name: Setup cloudwatch agent
+# import_tasks: setup-cloudwatch-agent.yml
