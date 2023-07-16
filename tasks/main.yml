@@ -14,6 +14,9 @@
 - name: Install sentry
   import_tasks: install-sentry.yml
 
+- name: Install docker loki plugin
+  import_tasks: install-loki-plugin.yml
+
 # Disabled, this is very expensive
 # - name: Setup cloudwatch agent
 # import_tasks: setup-cloudwatch-agent.yml

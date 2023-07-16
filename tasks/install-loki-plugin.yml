@@ -1,0 +1,4 @@
+---
+- name: Install Loki plugin
+  shell: 
+    cmd: docker plugin install grafana/loki-docker-driver:latest --alias loki --grant-all-permissions
