@@ -16,3 +16,4 @@
     - 'awscli'
     - 'cron'
     - 'containerd'
+    - 'python3-docker'

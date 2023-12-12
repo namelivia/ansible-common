@@ -7,7 +7,3 @@
 - name: Install docker
   apt: name={{ item }} state=latest update_cache=yes
   loop: ['docker.io']
-
-- name: Install Docker Module for Python
-  pip:
-    name: docker
